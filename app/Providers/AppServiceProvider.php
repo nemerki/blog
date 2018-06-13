@@ -2,6 +2,10 @@
 
 namespace App\Providers;
 
+use App\Setting;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +17,15 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Schema::defaultStringLength(191);
+
+        setlocale(LC_TIME,"tr_TR");
+        Carbon::setLocale("tr");
+
+
+       config()->set('setting',\App\Setting::pluck("value","name")->all());
+
+
     }
 
     /**

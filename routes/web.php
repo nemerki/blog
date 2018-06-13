@@ -11,6 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+include base_path("routes/backend/route.php");
+include base_path("routes/frontend/route.php");
+
+
+Route::get('/test/mail', function () {
+    return new \App\Mail\PasswordResetMail();
 });
