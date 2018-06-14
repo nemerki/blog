@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\Backend\User;
 
+use App\Role;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -14,7 +17,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view("backend.user.index");
+        $users = User::all();
+        return view("backend.user.index", compact("users"));
     }
 
     /**
@@ -57,7 +61,11 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+
+        $user = User::where("id", $id)->firstOrFail();
+        $allroles = Role::all();
+        $roles = $user->roles()->pluck('role_id');
+        return view("backend.user.edit", compact("user", "allroles", "roles"));
     }
 
     /**
@@ -69,7 +77,36 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            "name" => "required|max:255",
+            "email" => "required|email|unique:users,email," . $id,
+            "password" => !empty($request->password) ? "required|min:6" : ""
+        ]);
+        $user = User::where('id', $id)->firstOrFail();
+        $data = request()->only('name', 'email');
+        if (request()->filled('password')) {
+
+            if ($request->password != $request->password_confirmation) {
+                return ["status" => "error", "title" => "Hatalı", "message" => "Şifreler Eşleşmiyor"];
+            } else {
+                $data['password'] = Hash::make($request->password);
+            }
+
+        }
+        $user->update($data);
+
+        $roles = request("role");
+
+        $user->roles()->sync($roles);
+
+        if ($user) {
+
+            return ["status" => "success", "title" => "başarılı", "message" => "Kullanıcı  Güncellendi"];
+        }
+
+        return ["status" => "error", "title" => "Hatalı", "message" => "Kullanıcı  Güncellenemedi"];
+
+
     }
 
     /**
@@ -78,8 +115,16 @@ class UserController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $user = User::where("id", $request->id)->delete();
+        if ($user) {
+
+            return ["status" => "success", "title" => "başarılı", "message" => "Kullanıcı  Silindi"];
+        }
+
+        return ["status" => "error", "title" => "Hatalı", "message" => "Kullanıcı  Silinemedi"];
+
+
     }
 }

@@ -21,6 +21,11 @@ Route::group(["prefix" => "admin", "as" => "backend", "namespace" => "Backend"/*
 
     Route::group(["prefix" => "kullanici", "as" => ".user", "namespace" => "User"], function () {
         Route::get("/", "UserController@index")->name(".index");
+        Route::get("/duzenle/{id}", "UserController@edit")->name(".edit");
+        Route::post("/update/{id}", "UserController@update")->name(".update");
+        Route::post("/delete", "UserController@destroy")->name(".delete");
+        Route::get("/ekle", "UserController@create")->name(".create");
+        Route::post("/store", "UserController@store")->name(".store");
 
 
     });

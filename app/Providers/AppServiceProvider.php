@@ -19,7 +19,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
 
-        setlocale(LC_TIME,"tr_TR");
+        setlocale(LC_TIME,"Turkish");
         Carbon::setLocale("tr");
 
 

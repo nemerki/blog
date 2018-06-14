@@ -5,13 +5,12 @@
 				</span>
         <ul id="m_quick_sidebar_tabs" class="nav nav-tabs m-tabs m-tabs-line m-tabs-line--brand" role="tablist">
             <li class="nav-item m-tabs__item">
-                <a class="nav-link m-tabs__link active" data-toggle="tab" href="#m_quick_sidebar_tabs_messenger"
-                   role="tab">
+                <a class="nav-link m-tabs__link active" data-toggle="tab" href="#m_quick_sidebar_tabs_messenger" role="tab">
                     Messages
                 </a>
             </li>
             <li class="nav-item m-tabs__item">
-                <a class="nav-link m-tabs__link" data-toggle="tab" href="#m_quick_sidebar_tabs_settings" role="tab">
+                <a class="nav-link m-tabs__link" 		data-toggle="tab" href="#m_quick_sidebar_tabs_settings" role="tab">
                     Settings
                 </a>
             </li>
@@ -91,7 +90,7 @@
                         <div class="m-messenger__wrapper">
                             <div class="m-messenger__message m-messenger__message--in">
                                 <div class="m-messenger__message-pic">
-                                    <img src="assets/app/media/img//users/user3.jpg" alt=""/>
+                                    <img src="assets/app/media/img//users/user3.jpg"  alt=""/>
                                 </div>
                                 <div class="m-messenger__message-body">
                                     <div class="m-messenger__message-arrow"></div>
@@ -168,7 +167,7 @@
                         <div class="m-messenger__wrapper">
                             <div class="m-messenger__message m-messenger__message--in">
                                 <div class="m-messenger__message-pic">
-                                    <img src="assets/app/media/img//users/user3.jpg" alt=""/>
+                                    <img src="assets/app/media/img//users/user3.jpg"  alt=""/>
                                 </div>
                                 <div class="m-messenger__message-body">
                                     <div class="m-messenger__message-arrow"></div>

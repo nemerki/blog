@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" >
 <!-- begin::Head -->
 <head>
+
 
     <title>@yield('tittle', config('app.name'))</title>
     @include("layouts.include.backend.head")
@@ -11,8 +12,7 @@
 </head>
 <!-- end::Head -->
 <!-- end::Body -->
-<body
-    class="m-page--fluid m--skin- m-content--skin-light2 m-header--fixed m-header--fixed-mobile m-aside-left--enabled m-aside-left--skin-dark m-aside-left--offcanvas m-footer--push m-aside--offcanvas-default">
+<body  class="m-page--fluid m--skin- m-content--skin-light2 m-header--fixed m-header--fixed-mobile m-aside-left--enabled m-aside-left--skin-dark m-aside-left--offcanvas m-footer--push m-aside--offcanvas-default"  >
 <!-- begin:: Page -->
 <div class="m-grid m-grid--hor m-grid--root m-page">
     <!-- BEGIN: Header -->
@@ -35,7 +35,7 @@
     <!-- end:: Body -->
     <!-- begin::Footer -->
 @include("layouts.include.backend.footer")
-<!-- end::Footer -->
+    <!-- end::Footer -->
 </div>
 <!-- end:: Page -->
 <!-- begin::Quick Sidebar -->
@@ -45,15 +45,14 @@
 <div id="m_scroll_top" class="m-scroll-top">
     <i class="la la-arrow-up"></i>
 </div>
-<!-- end::Scroll Top -->
+<!-- end::Scroll Top -->		    <!-- begin::Quick Nav -->
 
 <!--begin::Base Scripts -->
 <script src="{{asset("assets/backend/vendors/base/vendors.bundle.js")}}" type="text/javascript"></script>
-<script src="{{asset("assets/backend/demo/demo12/base/scripts.bundle.js")}}" type="text/javascript"></script>
+<script src="{{asset("assets/backend/demo/default/base/scripts.bundle.js")}}" type="text/javascript"></script>
 <!--end::Base Scripts -->
 <!--begin::Page Vendors -->
-<script src="{{asset("assets/backend/vendors/custom/fullcalendar/fullcalendar.bundle.js")}}"
-        type="text/javascript"></script>
+<script src="{{asset("assets/backend/vendors/custom/fullcalendar/fullcalendar.bundle.js")}}" type="text/javascript"></script>
 <!--end::Page Vendors -->
 <!--begin::Page Snippets -->
 <script src="{{asset("assets/backend/app/js/dashboard.js")}}" type="text/javascript"></script>
@@ -63,3 +62,4 @@
 </body>
 <!-- end::Body -->
 </html>
+

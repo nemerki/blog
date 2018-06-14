@@ -1,3 +1,4 @@
+
 <meta charset="utf-8"/>
 <meta name="description" content="Latest updates and statistic charts">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,6 +19,7 @@
 <link href="{{asset("assets/backend/vendors/custom/fullcalendar/fullcalendar.bundle.css")}}" rel="stylesheet" type="text/css"/>
 <!--end::Page Vendors -->
 <link href="{{asset("assets/backend/vendors/base/vendors.bundle.css")}}" rel="stylesheet" type="text/css"/>
-<link href="{{asset("assets/backend/demo/demo12/base/style.bundle.css")}}" rel="stylesheet" type="text/css"/>
+<link href="{{asset("assets/backend/demo/default/base/style.bundle.css")}}" rel="stylesheet" type="text/css"/>
 <!--end::Base Styles -->
-<link rel="shortcut icon" href="{{asset("assets/backend/demo/demo12/media/img/logo/favicon.ico")}}"/>
+<link rel="shortcut icon" href="{{asset("assets/backend/demo/default/media/img/logo/favicon.ico")}}"/>
+
