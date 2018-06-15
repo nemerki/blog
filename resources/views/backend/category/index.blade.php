@@ -28,7 +28,7 @@
                     <div class="m-portlet__head-caption">
                         <div class="m-portlet__head-title">
                             <h3 class="m-portlet__head-text">
-                                Tüm Kullanıcılar
+                                Tüm Kategoriler
                             </h3>
                         </div>
                     </div>
@@ -105,18 +105,18 @@
                                     </div>
                                 </div>
                             </div>
-                            {{--<div class="col-xl-4 order-1 order-xl-2 m--align-right">--}}
-                                {{--<a href="#"--}}
-                                   {{--class="btn btn-primary m-btn m-btn--custom m-btn--icon m-btn--air m-btn--pill">--}}
-												{{--<span>--}}
-													{{--<i class="la la-cart-plus"></i>--}}
-													{{--<span>--}}
-														{{--New Order--}}
-													{{--</span>--}}
-												{{--</span>--}}
-                                {{--</a>--}}
-                                {{--<div class="m-separator m-separator--dashed d-xl-none"></div>--}}
-                            {{--</div>--}}
+                            <div class="col-xl-4 order-1 order-xl-2 m--align-right">
+                                <a href="{{route("backend.category.create")}}"
+                                   class="btn btn-primary m-btn m-btn--custom m-btn--icon m-btn--air m-btn--pill">
+												<span>
+													<i class="la la-cart-plus"></i>
+													<span>
+														Yeni Kategori
+													</span>
+												</span>
+                                </a>
+                                <div class="m-separator m-separator--dashed d-xl-none"></div>
+                            </div>
                         </div>
                     </div>
                     <!--end: Search Form -->
@@ -124,22 +124,18 @@
                     <table class="m-datatable" id="html_table" width="100%">
                         <thead>
                         <tr>
-                            <th>
-                                Sıra
-                            </th>
+
 
                             <th>
-                                İsmi
+                               Resim
                             </th>
                             <th>
-                                Email
+                                Başlık
                             </th>
                             <th>
-                                Rolleri
+                                Slug
                             </th>
-                            <th>
-                                Üyelik Tarihi
-                            </th>
+
                             <th>
                                 İşlem
                             </th>
@@ -148,45 +144,28 @@
                         </thead>
                         <tbody>
                         @php($i=0)
-                        @foreach($users as $user)
+                        @foreach($categories as $category)
                             @php($i++)
                             <tr>
-                                <td>
-                                    {{$i}}
-                                </td>
-                                <td>
-                                    {{$user->name}}
-                                </td>
-                                <td>
-                                    {{$user->email}}
-                                </td>
-                                <td>
-                                    <div class="m-demo__preview m-demo__preview--badge">
-                                        @foreach($user->roles as $role)
 
-                                            @if($role->name == 'standart')
-                                                <span
-                                                    class="m-badge m-badge--primary m-badge--wide mb-2">Standart</span>
-                                            @elseif($role->name == 'admin')
-                                                <span class="m-badge m-badge--success m-badge--wide mb-2">Admin</span>
-                                            @elseif($role->name == 'author')
-                                                <span class="m-badge m-badge--warning m-badge--wide mb-2">Yazar</span>
-                                            @endif
-
-
-                                        @endforeach
-                                    </div>
+                                <td>
+                                    {!! $category->thumb !!}
                                 </td>
                                 <td>
-                                    {{$user->created_at->diffForHumans()}}
+                                  {!! $category->tittle !!}
                                 </td>
                                 <td>
-                                    <a href="{{route("backend.user.edit",["id"=>$user->id])}}"
+                                   {{$category->slug}}
+                                </td>
+
+                                <td>
+                                    <a href="{{route("backend.category.edit",["id"=>$category->id])}}"
                                        class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill"
                                        title="Düzenle"> <i class="la la-edit"></i> </a>
                                     <button
-                                    class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill  "
-                                    title="Sil"><i data-id="{{$user->id}}" class="la la-trash userDelete"></i></button>
+                                        class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill  "
+                                        title="Sil"><i data-id="{{$category->id}}" class="la la-trash categoryDelete"></i>
+                                    </button>
 
                                 </td>
 
@@ -206,8 +185,7 @@
     <script>
 
 
-
-        $("#html_table").on("click", ".userDelete", function () {
+        $("#html_table").on("click", ".categoryDelete", function () {
             var button = $(this);
 
             swal({
@@ -222,7 +200,7 @@
             });
             $.ajax({
                 type: "post",
-                url: "{{route("backend.user.delete")}}",
+                url: "{{route("backend.category.delete")}}",
                 data: {
                     _token: "{{csrf_token()}}",
                     id: button.data("id")
