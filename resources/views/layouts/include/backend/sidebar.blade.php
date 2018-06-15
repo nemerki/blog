@@ -79,5 +79,15 @@
 									</span>
             </a>
         </li>
+
+        <li class="m-menu__item " aria-haspopup="true"  m-menu-link-redirect="1">
+            <a  href="{{route("backend.article.index")}}" class="m-menu__link ">
+                <span class="m-menu__item-here"></span>
+                <i class="m-menu__link-icon flaticon-edit"></i>
+                <span class="m-menu__link-text">
+										Makaleler
+									</span>
+            </a>
+        </li>
     </ul>
 </div>

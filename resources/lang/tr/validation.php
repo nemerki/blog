@@ -102,12 +102,16 @@ return [
         'password' => 'Şifre',
         'name'=>'İsim',
         "tittle"=>"Başlık",
+        "title"=>"Başlık",
         "author"=>"Yazar",
         "descripton"=>"Açıklama",
         "keywords"=>"Anahtar Kelime",
         "facebook"=>"Facebook",
         "twitter"=>"Twitter",
         "github"=>"Github",
+        "category_id"=>"Kategori",
+        "content"=>"İçerik",
+        "image"=>"Resim",
     ],
 
 ];
