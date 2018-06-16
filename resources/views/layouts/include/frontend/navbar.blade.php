@@ -31,9 +31,9 @@
 
                             @endif
                             @if(Auth::user()->yetkisi_varmi("author"))
-                                <li><a href="{{ url('/makalem') }}"><i class="fa fa-btn fa-list"></i>Makalelerim</a>
+                                <li><a href="{{ route("frontend.article.index")}}"><i class="fa fa-btn fa-list"></i>Makalelerim</a>
                                 </li>
-                                <li><a href="{{ url('/makalem/create') }}"><i class="fa fa-btn fa-plus"></i>Yeni
+                                <li><a href="{{route("frontend.article.create") }}"><i class="fa fa-btn fa-plus"></i>Yeni
                                         Makale Ekle</a></li>
                             @endif
                             @if(!Auth::user()->yetkisi_varmi("admin") && !Auth::user()->yetkisi_varmi("author"))

@@ -6,7 +6,7 @@
 
 
 <!-- Bootstrap core CSS -->
-<link href="{{asset("assets/frontend/vendor/bootstrap/css/bootstrap.min.css")}}" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css" rel="stylesheet">
 
 <!-- Custom fonts for this template -->
 <link href="{{asset("assets/frontend/vendor/font-awesome/css/font-awesome.min.css")}}" rel="stylesheet" type="text/css">

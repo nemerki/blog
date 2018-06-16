@@ -15,7 +15,7 @@
 													<i class="la la-gear"></i>
 												</span>
                                 <h3 class="m-portlet__head-text">
-                                    Yazı Ekle
+                                    Makale Güncelle
                                 </h3>
                             </div>
                         </div>

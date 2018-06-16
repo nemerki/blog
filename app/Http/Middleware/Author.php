@@ -3,9 +3,8 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Illuminate\Support\Facades\Auth;
 
-class Admin
+class Author
 {
     /**
      * Handle an incoming request.
@@ -17,11 +16,10 @@ class Admin
     public function handle($request, Closure $next)
     {
         if (Auth::check()){
-            if (Auth::user()->yetkisi_varmi("admin")){
+            if (Auth::user()->yetkisi_varmi("author")){
                 return $next($request);
             }
         }
-        return redirect("/login");
+        return redirect("/");
     }
 }
-
