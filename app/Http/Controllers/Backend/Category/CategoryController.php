@@ -43,8 +43,9 @@ class CategoryController extends Controller
             "tittle" => $request->tittle
         ]);
         if ($image = $request->file("image")) {
-            $image_name = time() . $image->getClientOriginalName();
-            $thumb = "thumb_" . time() . $image->getClientOriginalName();
+            $time = time();
+            $image_name = $time . $image->getClientOriginalName();
+            $thumb = "thumb_" . $time . $image->getClientOriginalName();
 
             Image::make($image->getRealPath())->fit(1900, 872)->fill([0, 0, 0, .5])->save("uploads/" . $image_name);
             Image::make($image->getRealPath())->fit(600, 400)->save("uploads/" . $thumb);
@@ -134,8 +135,8 @@ class CategoryController extends Controller
         $category_img = Category::find($id)->image->name;
         $thumb = substr($category_img, 8);
 
-        unlink(public_path($category_img));
-        unlink(public_path("uploads/thumb_" . $thumb));
+        @unlink(public_path($category_img));
+        @unlink(public_path("uploads/thumb_" . $thumb));
 
         $image = \App\Image::where("imageable_id", $id)->where("imageable_type", "App\Category")->delete();
 

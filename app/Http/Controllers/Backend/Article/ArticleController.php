@@ -60,8 +60,9 @@ class ArticleController extends Controller
         ]);
 
         if ($image = $request->file("image")) {
-            $image_name = time() . $image->getClientOriginalName();
-            $thumb = "thumb_" . time() . $image->getClientOriginalName();
+            $time = time();
+            $image_name = $time . $image->getClientOriginalName();
+            $thumb = "thumb_" . $time . $image->getClientOriginalName();
 
             Image::make($image->getRealPath())->fit(1900, 872)->fill([0, 0, 0, .5])->save("uploads/" . $image_name);
             Image::make($image->getRealPath())->fit(600, 400)->save("uploads/" . $thumb);
@@ -162,8 +163,8 @@ class ArticleController extends Controller
         $article_img = $article->image->name;
         $thumb = substr($article_img, 8);
 
-        unlink(public_path($article_img));
-        unlink(public_path("uploads/thumb_" . $thumb));
+        @unlink(public_path($article_img));
+        @unlink(public_path("uploads/thumb_" . $thumb));
 
         $image = \App\Image::where("imageable_id", $id)->where("imageable_type", "App\Article")->delete();
 

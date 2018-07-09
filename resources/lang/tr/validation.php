@@ -112,6 +112,7 @@ return [
         "category_id"=>"Kategori",
         "content"=>"İçerik",
         "image"=>"Resim",
+        "description"=>"Açıklama",
     ],
 
 ];

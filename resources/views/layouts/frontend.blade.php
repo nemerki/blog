@@ -9,7 +9,7 @@
 
 </head>
 
-<body>
+<body data-status="{{\Illuminate\Support\Facades\Session::get("status")}}">
 
 @include("layouts.include.frontend.navbar")
 @include("layouts.include.frontend.header")

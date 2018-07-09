@@ -26,7 +26,7 @@
 
                         <ul class="dropdown-menu dropdown-menu-right" role="menu">
                             @if(Auth::user()->yetkisi_varmi("admin"))
-                                <li><a href="{{ url('/site-ayarlari') }}"><i class="fa fa-dashboard"></i>
+                                <li><a href="{{route("backend.home.index") }}"><i class="fa fa-dashboard"></i>
                                         Admin Panel</a></li>
 
                             @endif
@@ -37,7 +37,7 @@
                                         Makale Ekle</a></li>
                             @endif
                             @if(!Auth::user()->yetkisi_varmi("admin") && !Auth::user()->yetkisi_varmi("author"))
-                                <li><a href="{{ url('/yazarlik-talebi') }}"><i class="fa fa-btn fa-envelope"></i>Yazarlık
+                                <li><a href="{{ route("frontend.writer.index")}}"><i class="fa fa-btn fa-envelope"></i>Yazarlık
                                         Talebi</a></li>
                             @endif
                             <li class="">
